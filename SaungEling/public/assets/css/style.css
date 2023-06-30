@@ -1,0 +1,19 @@
+.main-color {
+    color: #04450B;
+}
+.text-color{
+    color: #808080;
+}
+.title-color{
+    color:#000000;
+}
+.btn{
+    margin-top: 20px;
+}
+.btn-lg-primary{
+    background-color: #04450B;
+    color: #fff;
+    width: 200px;
+    height: 52px;
+    border-radius: 15px;
+}
