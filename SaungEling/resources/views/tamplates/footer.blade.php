@@ -1,38 +1,10 @@
 <footer class="text-center text-white" style="background-color: #04450B">
     <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-3">
-            <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!" class="text-white">About us</a>
-                </h6>
-            </div>
-            <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!" class="text-white">Products</a>
-                </h6>
-            </div>
-            <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!" class="text-white">Awards</a>
-                </h6>
-            </div>
-            <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!" class="text-white">Help</a>
-                </h6>
-            </div>
-            <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!" class="text-white">Contact</a>
-                </h6>
-            </div>
-        </div>
-
         <hr />
 
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
-                <p>
+                <p style="font-size: 12px; font-weight: 100">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
                     distinctio earum repellat quaerat voluptatibus placeat nam,
                     commodi optio pariatur est quia magnam eum harum corrupti
@@ -41,24 +13,24 @@
             </div>
         </div>
 
-        <div class="text-center ">
-            <a href="" class="text-white me-4">
-                <i class="fab fa-facebook-f"></i>
+        <div class="text-center mb-2 ">
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-twitter"></i>
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-twitter"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-google"></i>
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-google"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-instagram"></i>
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-linkedin"></i>
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-github"></i>
+            <a href="" class="text-white text-decoration-none me-4">
+                <i class="fa-brands fa-github"></i>
             </a>
         </div>
     </div>
