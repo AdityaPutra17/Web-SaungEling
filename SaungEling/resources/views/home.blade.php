@@ -1,10 +1,10 @@
 @extends('template')
 @section('content')
 {{-- Start Hero --}}
-<div class="row mt-5 main-color ">
+<div class="row mt-5">
     <div class="col-md-6 mt-4">
-        <h1 style="font-size: 42px">Desa Wisata</h1>
-        <h1 class='fw-bold' style="font-size: 60px">Saung Eling</h1>
+        <h1 style="font-size: 42px;">Desa Wisata</h1>
+        <h1 class='fw-bold text-green' style="font-size: 60px;">Saung Eling</h1>
         <p>"Saung Eling adalah tempat yang di bangun oleh swadaya dan gotong royong
             masyarakat dengan memanfaatkan potensi yang ada di lingkungannya."</p>
         <a href="#travel" class="text-decoration-none text-white"><button class='btn btn-lg-primary'> Make Reservation</button></a>
@@ -27,96 +27,32 @@
 </div>
 
 <div class="row mb-5 pb-5">
+    @foreach ($datatravel as $travel)
     <div class="col-md-3">
-        <a class="text-decoration-none title-color" href="/detailtravel">
+        <a class="text-decoration-none text-black" href="{{ route('travel.show', ['travel' => $travel->id])}}">
             <div class="card shadow" style="width: 16rem;">
                 <img src="assets/img/travel.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <span class="fw-bold" style="font-size: 17px">Ngaprak di Lembur Sawah</span>
+                            <span class="fw-bold" style="font-size: 17px">{{$travel->nama}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <span>Mulai Dari</span><br>
-                            <span class="fw-bold">IDR 165000/pax</span>
+                            <span class="fw-bold">IDR {{$travel->harga}}/pax</span>
                         </div>
                         <div class="col-md-6 text-end">
                             <span>Minimal</span><br>
-                            <span class="fw-bold">5 Pax</span>
+                            <span class="fw-bold">{{$travel->min_pax}} Pax</span>
                         </div>
                     </div>
                 </div>
             </div>
         </a>
     </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/travel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <span class="fw-bold" style="font-size: 17px">Ngaprak di Lembur Sawah</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span>Mulai Dari</span><br>
-                        <span class="fw-bold">IDR 165000/pax</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span>Minimal</span><br>
-                        <span class="fw-bold">5 Pax</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/travel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <span class="fw-bold" style="font-size: 17px">Ngaprak di Lembur Sawah</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span>Mulai Dari</span><br>
-                        <span class="fw-bold">IDR 165000/pax</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span>Minimal</span><br>
-                        <span class="fw-bold">5 Pax</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/travel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <span class="fw-bold" style="font-size: 17px">Ngaprak di Lembur Sawah</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span>Mulai Dari</span><br>
-                        <span class="fw-bold">IDR 165000/pax</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span>Minimal</span><br>
-                        <span class="fw-bold">5 Pax</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 {{-- End Travel Package --}}
 
@@ -174,169 +110,73 @@
     </div>
 </div>
 <div class="row">
+    @foreach($datadestinasi as $destinasi)
     <div class="col-md-3">
-        <a class="text-decoration-none title-color" href="/detailDestinasi">
+        <a class="text-decoration-none text-black" href="{{ route('destinasi.show', ['destinasi' => $destinasi->id]) }}">
             <div class="card shadow" style="width: 16rem;">
-                <img src="assets/img/imgdestinasi.png" class="card-img-top" alt="...">
+                <img src="{{asset('storage/'.$destinasi->image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <span class="fw-bold">Judul</span>
+                            <span class="fw-bold">{{$destinasi->nama}}</span>
                         </div>
                         <div class="col-md-6 text-end">
-                            <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
+                            <span class="bg-success rounded-pill px-3 pb-1 text-white">{{($destinasi->is_active) ? "Ready":"No"}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </a>
     </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgdestinasi.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgdestinasi.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgdestinasi.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 
 
 {{-- End Destinasi --}}
 
 
-{{-- Start Hotel --}}
+{{-- Start Homestay --}}
 <div id='hotel' class="row mt-5 ">
     <div class="col-md-6">
-        <h1 class="fw-bold mb-3">Hotel</h1>
+        <h1 class="fw-bold mb-3">Homestay</h1>
     </div>
     <div class="col-md-6 text-end pt-1">
-        <a class="text-decoration-none text-color" href="/hotel"><span class="fs-4">See more...</span></a>
+        <a class="text-decoration-none text-color" href="/homestay"><span class="fs-4">See more...</span></a>
     </div>
 </div>
-<div class="row">
+<div class="row mb-5">
+    @foreach($datahomestay as $homestay)
     <div class="col-md-3">
-        <a class="text-decoration-none title-color" href="/detailhotel">
-            <div class="card shadow" style="width: 16rem;">
-                <img src="assets/img/imghotel.png" class="card-img-top" alt="...">
+        <a class="text-decoration-none text-black" href="{{ route('homestay.show', ['homestay' => $homestay->id]) }}">
+            <div class="card shadow" style="width: 16rem; ">
+                <div class="row p-1 align-items-center" style="height: 200px">
+                    <img src="{{asset('storage/'.$homestay->image)}}" style="height: 90%;" class="card-img-top" alt="...">
+                </div>
                 <div class="card-body">
                     <div class="row" style="margin-top: -12px; margin-bottom: 12px">
                         <div class="col-md-12 text-center">
-                            <span class="fw-bold">Judul</span>
+                            <span class="fw-bold">{{$homestay->nama}}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-5">
-                            <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
+                            @if($homestay->is_active)
+                            <span class="bg-success rounded-pill px-1 pb-1 text-white">Available</span>
+                            @else
+                            <span class="bg-danger rounded-pill px-3 pb-1 text-white">Not</span>
+                            @endif
                         </div>
                         <div class="col-md-7 text-end">
-                            <p>Max <span class="fw-bold">20 orang</span></p>
+                            <p>Max <span class="fw-bold">{{$homestay->max_pax}} orang</span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </a>
     </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imghotel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <p>Max <span class="fw-bold">20 orang</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imghotel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <p>Max <span class="fw-bold">20 orang</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imghotel.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <p>Max <span class="fw-bold">20 orang</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
-
-{{-- End Hotel --}}
+{{-- End Homestay- --}}
 
 
 {{-- Start Kuliner --}}
@@ -349,88 +189,32 @@
     </div>
 </div>
 <div class="row mb-5">
+    @foreach($datakuliner as $kuliner)
     <div class="col-md-3">
-        <a class="text-decoration-none title-color" href="/detailkuliner">
+        <a class="text-decoration-none text-black" href="{{ route('kuliner.show', ['kuliner' => $kuliner->id]) }}">
             <div class="card shadow" style="width: 16rem;">
-                <img src="assets/img/imgmknan.png" class="card-img-top" alt="...">
+                <div class="row p-1 align-items-center" style="height: 200px">
+                    <img src="{{asset('storage/'.$kuliner->image)}}" style="height: 90%;" class="card-img-top" alt="...">
+                </div>
                 <div class="card-body">
                     <div class="row" style="margin-top: -12px; margin-bottom: 12px">
                         <div class="col-md-12 text-center">
-                            <span class="fw-bold">Judul</span>
+                            <span class="fw-bold">{{$kuliner->nama}}</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
+                        <div class="col-md-7">
+                            <span class="bg-success rounded-pill px-1 pb-1 text-white">{{$kuliner->kategori->nama}}</span>
                         </div>
-                        <div class="col-md-7 text-end">
-                            <span class="fw-bold">IDR 12000</span>
+                        <div class="col-md-5 text-end">
+                            <span class="fw-bold">IDR {{$kuliner->harga}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </a>
     </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgmknan.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <span class="fw-bold">IDR 12000</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgmknan.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <span class="fw-bold">IDR 12000</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card shadow" style="width: 16rem;">
-            <img src="assets/img/imgmknan.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="row" style="margin-top: -12px; margin-bottom: 12px">
-                    <div class="col-md-12 text-center">
-                        <span class="fw-bold">Judul</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <span class="bg-success rounded-pill px-3 pb-1 text-white">status</span>
-                    </div>
-                    <div class="col-md-7 text-end">
-                        <span class="fw-bold">IDR 12000</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 {{-- End Kuliner --}}
 
